@@ -1,13 +1,6 @@
 import { Card } from '@/components/ui/card';
 
-interface ProgressTrackerProps {
-  totalTasks: number;
-  completedTasks: number;
-  progressPercentage: number;
-  todayTasks: number;
-}
-
-export const ProgressTracker = ({ totalTasks, completedTasks, progressPercentage, todayTasks }: ProgressTrackerProps) => {
+export const ProgressTracker = ({ totalTasks, completedTasks, progressPercentage, todayTasks }) => {
   const circumference = 2 * Math.PI * 45; // radius = 45
   const strokeDashoffset = circumference - (progressPercentage / 100) * circumference;
 

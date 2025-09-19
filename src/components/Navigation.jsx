@@ -1,20 +1,9 @@
-import { ViewType } from '../types/task';
 import { Button } from '@/components/ui/button';
 
-interface NavigationProps {
-  currentView: ViewType;
-  onViewChange: (view: ViewType) => void;
-  taskCounts: {
-    today: number;
-    completed: number;
-    all: number;
-  };
-}
-
-export const Navigation = ({ currentView, onViewChange, taskCounts }: NavigationProps) => {
+export const Navigation = ({ currentView, onViewChange, taskCounts }) => {
   const navItems = [
     {
-      key: 'today' as ViewType,
+      key: 'today',
       label: 'Today',
       count: taskCounts.today,
       icon: (
@@ -24,7 +13,7 @@ export const Navigation = ({ currentView, onViewChange, taskCounts }: Navigation
       )
     },
     {
-      key: 'completed' as ViewType,
+      key: 'completed',
       label: 'Completed',
       count: taskCounts.completed,
       icon: (
@@ -34,7 +23,7 @@ export const Navigation = ({ currentView, onViewChange, taskCounts }: Navigation
       )
     },
     {
-      key: 'all' as ViewType,
+      key: 'all',
       label: 'All Tasks',
       count: taskCounts.all,
       icon: (

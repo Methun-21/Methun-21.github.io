@@ -1,19 +1,11 @@
 import { useState } from 'react';
-import { Task } from '../types/task';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card } from '@/components/ui/card';
 import { Check, Pencil, Trash2 } from 'lucide-react';
 
-interface TaskItemProps {
-  task: Task;
-  onToggle: (id: string) => void;
-  onDelete: (id: string) => void;
-  onEdit: (id: string, title: string, description?: string) => void;
-}
-
-export const TaskItem = ({ task, onToggle, onDelete, onEdit }: TaskItemProps) => {
+export const TaskItem = ({ task, onToggle, onDelete, onEdit }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editTitle, setEditTitle] = useState(task.title);
   const [editDescription, setEditDescription] = useState(task.description || '');
@@ -31,7 +23,7 @@ export const TaskItem = ({ task, onToggle, onDelete, onEdit }: TaskItemProps) =>
     setIsEditing(false);
   };
 
-  const formatDate = (dateString: string) => {
+  const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', {
       month: 'short',

@@ -3,12 +3,11 @@ import { TaskItem } from './TaskItem';
 import { ProgressTracker } from './ProgressTracker';
 import { Navigation } from './Navigation';
 import { AddTaskForm } from './AddTaskForm';
-import { Task, ViewType } from '../types/task';
 import { useToast } from '@/hooks/use-toast';
 
 export const TaskManager = () => {
-  const [tasks, setTasks] = useState<Task[]>([]);
-  const [currentView, setCurrentView] = useState<ViewType>('today');
+  const [tasks, setTasks] = useState([]);
+  const [currentView, setCurrentView] = useState('today');
   const { toast } = useToast();
 
   // Load tasks from localStorage on mount
@@ -28,8 +27,8 @@ export const TaskManager = () => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
 
-  const addTask = (title: string, description?: string) => {
-    const newTask: Task = {
+  const addTask = (title, description) => {
+    const newTask = {
       id: Date.now().toString(),
       title,
       description,
@@ -43,7 +42,7 @@ export const TaskManager = () => {
     });
   };
 
-  const toggleTask = (id: string) => {
+  const toggleTask = (id) => {
     setTasks(prev => 
       prev.map(task => 
         task.id === id 
@@ -53,7 +52,7 @@ export const TaskManager = () => {
     );
   };
 
-  const deleteTask = (id: string) => {
+  const deleteTask = (id) => {
     setTasks(prev => prev.filter(task => task.id !== id));
     toast({
       title: "Task deleted",
@@ -62,7 +61,7 @@ export const TaskManager = () => {
     });
   };
 
-  const editTask = (id: string, title: string, description?: string) => {
+  const editTask = (id, title, description) => {
     setTasks(prev =>
       prev.map(task =>
         task.id === id

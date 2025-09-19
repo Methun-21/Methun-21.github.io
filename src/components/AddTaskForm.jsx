@@ -4,16 +4,12 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card } from '@/components/ui/card';
 
-interface AddTaskFormProps {
-  onAddTask: (title: string, description?: string) => void;
-}
-
-export const AddTaskForm = ({ onAddTask }: AddTaskFormProps) => {
+export const AddTaskForm = ({ onAddTask }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (title.trim()) {
       onAddTask(title.trim(), description.trim() || undefined);
@@ -23,7 +19,7 @@ export const AddTaskForm = ({ onAddTask }: AddTaskFormProps) => {
     }
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e) => {
     if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) {
       handleSubmit(e);
     }
