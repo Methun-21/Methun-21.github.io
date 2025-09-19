@@ -2,66 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Task Manager Design System - Productive & Calming Colors */
+/* Modern Task Manager Design System - Clean & Professional */
 
 @layer base {
   :root {
-    /* Main background with subtle gradient */
-    --background: 220 15% 97%;
-    --foreground: 215 25% 27%;
+    /* Modern gradient background */
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
 
-    /* Task cards with gentle elevation */
-    --card: 0 0% 100%;
-    --card-foreground: 215 25% 27%;
+    /* Sleek dark cards */
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 27%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
 
-    /* Primary - Productive Blue */
-    --primary: 217 91% 60%;
-    --primary-foreground: 0 0% 100%;
-    --primary-hover: 217 91% 55%;
+    /* Vibrant primary - Modern purple */
+    --primary: 262 83% 58%;
+    --primary-foreground: 210 40% 98%;
+    --primary-hover: 262 83% 52%;
 
-    /* Secondary - Soft completion green */
-    --secondary: 158 64% 52%;
-    --secondary-foreground: 0 0% 100%;
-    --secondary-hover: 158 64% 47%;
+    /* Success - Modern green */
+    --secondary: 142 71% 45%;
+    --secondary-foreground: 210 40% 98%;
+    --secondary-hover: 142 71% 40%;
 
     /* Muted elements */
-    --muted: 220 13% 91%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 215 27% 17%;
+    --muted-foreground: 215 20% 65%;
 
-    /* Accent - Warm completion orange */
-    --accent: 43 96% 56%;
-    --accent-foreground: 215 25% 27%;
+    /* Accent - Bright cyan */
+    --accent: 199 89% 48%;
+    --accent-foreground: 210 40% 98%;
 
-    /* Destructive - Soft red for deletions */
-    --destructive: 0 65% 51%;
-    --destructive-foreground: 0 0% 100%;
+    /* Destructive - Modern red */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
 
     /* Borders and inputs */
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 217 91% 60%;
+    --border: 215 27% 17%;
+    --input: 215 27% 17%;
+    --ring: 262 83% 58%;
 
-    /* Enhanced radius for modern feel */
-    --radius: 0.75rem;
+    /* Modern radius */
+    --radius: 0.5rem;
 
     /* Progress colors */
-    --progress-bg: 220 13% 91%;
-    --progress-fill: 217 91% 60%;
-    --success: 158 64% 52%;
-    --warning: 43 96% 56%;
+    --progress-bg: 215 27% 17%;
+    --progress-fill: 262 83% 58%;
+    --success: 142 71% 45%;
+    --warning: 38 92% 50%;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(217 91% 50%));
-    --gradient-success: linear-gradient(135deg, hsl(158 64% 52%), hsl(158 64% 47%));
-    --gradient-background: linear-gradient(135deg, hsl(220 15% 97%), hsl(220 15% 95%));
+    /* Modern gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(262 83% 58%), hsl(199 89% 48%));
+    --gradient-success: linear-gradient(135deg, hsl(142 71% 45%), hsl(158 64% 47%));
+    --gradient-background: linear-gradient(135deg, hsl(222 47% 11%), hsl(215 27% 17%));
+    --gradient-card: linear-gradient(145deg, hsl(222 47% 11%), hsl(215 27% 17%));
     
-    /* Shadows */
-    --shadow-soft: 0 2px 8px -2px hsl(215 25% 27% / 0.1);
-    --shadow-medium: 0 4px 16px -4px hsl(215 25% 27% / 0.15);
-    --shadow-strong: 0 8px 32px -8px hsl(215 25% 27% / 0.2);
+    /* Modern shadows with glow */
+    --shadow-soft: 0 4px 6px -1px hsl(262 83% 58% / 0.1), 0 2px 4px -1px hsl(262 83% 58% / 0.06);
+    --shadow-medium: 0 10px 15px -3px hsl(262 83% 58% / 0.1), 0 4px 6px -2px hsl(262 83% 58% / 0.05);
+    --shadow-strong: 0 25px 50px -12px hsl(262 83% 58% / 0.25);
+    --glow-primary: 0 0 20px hsl(262 83% 58% / 0.3);
+    --glow-success: 0 0 20px hsl(142 71% 45% / 0.3);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -84,34 +87,37 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 142 71% 45%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 199 89% 48%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 262 83% 58%;
+    
+    --gradient-background: linear-gradient(135deg, hsl(0 0% 100%), hsl(210 40% 96%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 40% 98%));
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -129,6 +135,38 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    background: var(--gradient-background);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .card-modern {
+    @apply bg-card border border-border/50 backdrop-blur-sm;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-modern:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-2px);
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    box-shadow: var(--glow-primary);
+    transform: translateY(-1px);
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.5);
   }
 }

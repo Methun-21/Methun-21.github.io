@@ -96,16 +96,21 @@ export const TaskManager = () => {
   const progressPercentage = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
 
   return (
-    <div className="min-h-screen" style={{ background: 'var(--gradient-background)' }}>
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
-        <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-foreground mb-2">Task Manager</h1>
-          <p className="text-muted-foreground">Stay productive and track your progress</p>
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+      <div className="container mx-auto px-6 py-12 max-w-6xl">
+        {/* Modern Header */}
+        <header className="text-center mb-12">
+          <h1 className="text-6xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent mb-4">
+            Task Flow
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Transform your productivity with our sleek, modern task management experience
+          </p>
         </header>
 
-        <div className="grid gap-8 lg:grid-cols-3">
+        <div className="grid gap-8 lg:grid-cols-4">
           {/* Main Task Area */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-3 space-y-8">
             <AddTaskForm onAddTask={addTask} />
             
             <Navigation 
@@ -122,34 +127,36 @@ export const TaskManager = () => {
 
             <div className="space-y-4">
               {filteredTasks.length === 0 ? (
-                <div className="text-center py-12">
-                  <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-muted flex items-center justify-center">
-                    <svg className="w-12 h-12 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                <div className="text-center py-16">
+                  <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                    <svg className="w-16 h-16 text-primary/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-medium text-foreground mb-2">No tasks found</h3>
-                  <p className="text-muted-foreground">
-                    {currentView === 'today' && "No tasks for today. Add your first task to get started!"}
-                    {currentView === 'completed' && "No completed tasks yet. Keep working!"}
-                    {currentView === 'all' && "Your task list is empty. Create your first task above."}
+                  <h3 className="text-2xl font-semibold text-foreground mb-3">No tasks found</h3>
+                  <p className="text-muted-foreground text-lg max-w-md mx-auto">
+                    {currentView === 'today' && "Ready to tackle today? Add your first task and let's get productive!"}
+                    {currentView === 'completed' && "No completed tasks yet. You've got this - keep pushing forward!"}
+                    {currentView === 'all' && "Your journey starts here. Create your first task and make it happen!"}
                   </p>
                 </div>
               ) : (
-                filteredTasks.map(task => (
-                  <TaskItem
-                    key={task.id}
-                    task={task}
-                    onToggle={toggleTask}
-                    onDelete={deleteTask}
-                    onEdit={editTask}
-                  />
-                ))
+                <div className="space-y-4">
+                  {filteredTasks.map(task => (
+                    <TaskItem
+                      key={task.id}
+                      task={task}
+                      onToggle={toggleTask}
+                      onDelete={deleteTask}
+                      onEdit={editTask}
+                    />
+                  ))}
+                </div>
               )}
             </div>
           </div>
 
-          {/* Progress Sidebar */}
+          {/* Modern Progress Sidebar */}
           <div className="lg:col-span-1">
             <ProgressTracker
               totalTasks={totalCount}

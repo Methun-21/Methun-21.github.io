@@ -26,44 +26,44 @@ export const AddTaskForm = ({ onAddTask }) => {
   };
 
   return (
-    <Card className="p-4 border-2 border-dashed border-border hover:border-primary/50 transition-colors duration-200">
+    <div className="card-modern p-6 border-2 border-dashed border-primary/30 hover:border-primary/60 transition-all duration-300 group">
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="flex gap-3">
-          <div className="flex-shrink-0 w-6 h-6 rounded-full border-2 border-primary/30 flex items-center justify-center mt-2">
-            <svg className="w-3 h-3 text-primary/50" fill="currentColor" viewBox="0 0 20 20">
+        <div className="flex gap-4">
+          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center mt-2 group-hover:scale-110 transition-transform duration-300">
+            <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
             </svg>
           </div>
           
-          <div className="flex-1 space-y-3">
+          <div className="flex-1 space-y-4">
             <Input
               type="text"
-              placeholder="Add a new task..."
+              placeholder="What needs to be done today?"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               onFocus={() => setIsExpanded(true)}
               onKeyDown={handleKeyDown}
-              className="border-none bg-transparent text-lg placeholder:text-muted-foreground focus-visible:ring-0 p-0"
+              className="border-none bg-transparent text-xl placeholder:text-muted-foreground focus-visible:ring-0 p-0 font-medium"
               autoComplete="off"
             />
             
             {isExpanded && (
-              <div className="space-y-3 animate-in slide-in-from-top-2 duration-200">
+              <div className="space-y-4 animate-in slide-in-from-top-2 duration-300">
                 <Textarea
-                  placeholder="Add description (optional)..."
+                  placeholder="Add more details..."
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  className="border-none bg-transparent placeholder:text-muted-foreground focus-visible:ring-0 p-0 min-h-[60px] resize-none"
-                  rows={2}
+                  className="border-none bg-transparent placeholder:text-muted-foreground focus-visible:ring-0 p-0 min-h-[80px] resize-none text-lg"
+                  rows={3}
                 />
                 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-3">
                   <Button 
                     type="submit" 
                     disabled={!title.trim()}
                     size="sm"
-                    className="bg-primary hover:bg-primary-hover text-primary-foreground"
+                    className="btn-primary px-6 py-2 font-semibold"
                   >
                     Add Task
                   </Button>
@@ -76,11 +76,15 @@ export const AddTaskForm = ({ onAddTask }) => {
                     }}
                     variant="ghost"
                     size="sm"
+                    className="text-muted-foreground hover:text-foreground"
                   >
                     Cancel
                   </Button>
-                  <span className="text-xs text-muted-foreground ml-auto">
-                    Press ⌘+Enter to add
+                  <span className="text-sm text-muted-foreground ml-auto flex items-center gap-1">
+                    <kbd className="px-2 py-1 text-xs bg-muted rounded">⌘</kbd>
+                    <span>+</span>
+                    <kbd className="px-2 py-1 text-xs bg-muted rounded">↵</kbd>
+                    to add
                   </span>
                 </div>
               </div>
@@ -88,6 +92,6 @@ export const AddTaskForm = ({ onAddTask }) => {
           </div>
         </div>
       </form>
-    </Card>
+    </div>
   );
 };

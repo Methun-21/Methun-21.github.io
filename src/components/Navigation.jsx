@@ -35,29 +35,33 @@ export const Navigation = ({ currentView, onViewChange, taskCounts }) => {
   ];
 
   return (
-    <nav className="flex flex-wrap gap-2 p-1 bg-muted rounded-lg">
-      {navItems.map((item) => (
-        <Button
-          key={item.key}
-          onClick={() => onViewChange(item.key)}
-          variant={currentView === item.key ? "default" : "ghost"}
-          className={`flex items-center gap-2 text-sm transition-all duration-200 ${
-            currentView === item.key 
-              ? 'bg-background shadow-sm' 
-              : 'hover:bg-background/50'
-          }`}
-        >
-          {item.icon}
-          <span>{item.label}</span>
-          <span className={`px-2 py-0.5 text-xs rounded-full transition-colors ${
-            currentView === item.key
-              ? 'bg-primary text-primary-foreground'
-              : 'bg-muted-foreground/20 text-muted-foreground'
-          }`}>
-            {item.count}
-          </span>
-        </Button>
-      ))}
+    <nav className="card-modern p-2">
+      <div className="flex flex-wrap gap-2">
+        {navItems.map((item) => (
+          <Button
+            key={item.key}
+            onClick={() => onViewChange(item.key)}
+            variant={currentView === item.key ? "default" : "ghost"}
+            className={`flex items-center gap-3 text-sm font-medium transition-all duration-300 relative overflow-hidden ${
+              currentView === item.key 
+                ? 'btn-primary text-white shadow-lg' 
+                : 'hover:bg-muted/60 text-muted-foreground hover:text-foreground'
+            }`}
+          >
+            <span className={`transition-transform duration-300 ${currentView === item.key ? 'scale-110' : ''}`}>
+              {item.icon}
+            </span>
+            <span className="font-semibold">{item.label}</span>
+            <span className={`px-3 py-1 text-xs rounded-full font-bold transition-all duration-300 ${
+              currentView === item.key
+                ? 'bg-white/20 text-white backdrop-blur-sm'
+                : 'bg-muted text-muted-foreground'
+            }`}>
+              {item.count}
+            </span>
+          </Button>
+        ))}
+      </div>
     </nav>
   );
 };

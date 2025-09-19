@@ -34,40 +34,41 @@ export const TaskItem = ({ task, onToggle, onDelete, onEdit }) => {
   };
 
   return (
-    <Card className="p-4 transition-all duration-300 hover:shadow-[var(--shadow-medium)] group">
-      <div className="flex items-start gap-3">
-        {/* Completion Toggle */}
+    <div className="card-modern p-6 group hover:scale-[1.02] transition-all duration-300">
+      <div className="flex items-start gap-4">
+        {/* Modern Completion Toggle */}
         <button
           onClick={() => onToggle(task.id)}
-          className={`flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
+          className={`flex-shrink-0 w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
             task.completed
-              ? 'bg-secondary border-secondary text-white'
-              : 'border-border hover:border-primary group-hover:border-primary'
+              ? 'bg-gradient-to-br from-secondary to-accent border-secondary text-white shadow-lg'
+              : 'border-border hover:border-primary group-hover:border-primary hover:scale-110'
           }`}
         >
-          {task.completed && <Check className="w-4 h-4" />}
+          {task.completed && <Check className="w-5 h-5" />}
         </button>
 
         {/* Task Content */}
         <div className="flex-1 min-w-0">
           {isEditing ? (
-            <div className="space-y-3">
+            <div className="space-y-4">
               <Input
                 value={editTitle}
                 onChange={(e) => setEditTitle(e.target.value)}
                 placeholder="Task title"
-                className="font-medium"
+                className="font-medium text-lg"
                 autoFocus
               />
               <Textarea
                 value={editDescription}
                 onChange={(e) => setEditDescription(e.target.value)}
                 placeholder="Task description (optional)"
-                rows={2}
+                rows={3}
+                className="text-base"
               />
-              <div className="flex gap-2">
-                <Button size="sm" onClick={handleSave} variant="default">
-                  Save
+              <div className="flex gap-3">
+                <Button size="sm" onClick={handleSave} className="btn-primary">
+                  Save Changes
                 </Button>
                 <Button size="sm" onClick={handleCancel} variant="outline">
                   Cancel
@@ -76,27 +77,27 @@ export const TaskItem = ({ task, onToggle, onDelete, onEdit }) => {
             </div>
           ) : (
             <div>
-              <h3 className={`font-medium text-lg transition-all duration-300 ${
+              <h3 className={`font-semibold text-xl transition-all duration-300 ${
                 task.completed 
-                  ? 'line-through text-muted-foreground' 
+                  ? 'line-through text-muted-foreground opacity-70' 
                   : 'text-foreground'
               }`}>
                 {task.title}
               </h3>
               {task.description && (
-                <p className={`text-sm mt-1 transition-all duration-300 ${
+                <p className={`text-base mt-2 transition-all duration-300 ${
                   task.completed 
-                    ? 'line-through text-muted-foreground' 
+                    ? 'line-through text-muted-foreground opacity-70' 
                     : 'text-muted-foreground'
                 }`}>
                   {task.description}
                 </p>
               )}
-              <div className="flex items-center justify-between mt-3">
-                <span className="text-xs text-muted-foreground">
+              <div className="flex items-center justify-between mt-4">
+                <span className="text-sm text-muted-foreground">
                   Created {formatDate(task.createdAt)}
                   {task.completedAt && (
-                    <span className="text-success ml-2">
+                    <span className="text-secondary ml-3 font-medium">
                       ✓ Completed {formatDate(task.completedAt)}
                     </span>
                   )}
@@ -106,14 +107,14 @@ export const TaskItem = ({ task, onToggle, onDelete, onEdit }) => {
           )}
         </div>
 
-        {/* Action Buttons */}
+        {/* Modern Action Buttons */}
         {!isEditing && (
-          <div className="flex-shrink-0 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+          <div className="flex-shrink-0 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
             <Button
               size="sm"
               variant="ghost"
               onClick={() => setIsEditing(true)}
-              className="h-8 w-8 p-0 hover:bg-muted"
+              className="h-10 w-10 p-0 hover:bg-accent/20 hover:text-accent rounded-full"
             >
               <Pencil className="w-4 h-4" />
             </Button>
@@ -121,13 +122,13 @@ export const TaskItem = ({ task, onToggle, onDelete, onEdit }) => {
               size="sm"
               variant="ghost"
               onClick={() => onDelete(task.id)}
-              className="h-8 w-8 p-0 hover:bg-destructive hover:text-destructive-foreground"
+              className="h-10 w-10 p-0 hover:bg-destructive/20 hover:text-destructive rounded-full"
             >
               <Trash2 className="w-4 h-4" />
             </Button>
           </div>
         )}
       </div>
-    </Card>
+    </div>
   );
 };
