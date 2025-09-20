@@ -34,7 +34,7 @@ export const TaskItem = ({ task, onToggle, onDelete, onEdit }) => {
   };
 
   return (
-    <div className="card-modern p-6 group hover:scale-[1.02] transition-all duration-300">
+    <Card className="p-6 group hover:scale-[1.02] transition-all duration-300 hover:shadow-2xl">
       <div className="flex items-start gap-4">
         {/* Modern Completion Toggle */}
         <button
@@ -129,6 +129,6 @@ export const TaskItem = ({ task, onToggle, onDelete, onEdit }) => {
           </div>
         )}
       </div>
-    </div>
+    </Card>
   );
 };
