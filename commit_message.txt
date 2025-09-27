@@ -1,1 +1,1 @@
-Fix: Add basename to BrowserRouter
+Fix: Use HashRouter instead of BrowserRouter
