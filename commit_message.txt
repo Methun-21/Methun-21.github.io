@@ -1,1 +1,1 @@
-Chore: Simplify App component for debugging
+Chore: Remove QueryClientProvider for debugging
