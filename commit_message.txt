@@ -1,1 +1,1 @@
-Fix: Use HashRouter instead of BrowserRouter
+Chore: Simplify App component for debugging
