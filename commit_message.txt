@@ -1,1 +1,1 @@
-Chore: Remove QueryClientProvider for debugging
+Fix: Restore App component without QueryClientProvider
