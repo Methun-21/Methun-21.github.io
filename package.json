@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://methun-21.github.io/achievigo-tasks/",
+  "homepage": "https://methun-21.github.io/Task-Manager/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

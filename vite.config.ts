@@ -4,7 +4,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/achievigo-tasks/",
+  base: "/Task-Manager/",
   server: {
     host: "::",
     port: 8080,
